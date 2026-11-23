@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кондитерская — Десерты</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <canvas id="sweets-canvas"></canvas>
+
+    <header>
+        <div class="menu">
+            <h1 data-cfg="brandName">Кондитерская</h1>
+            <nav class="links">
+                <a href="index.html">Главная</a>
+                <a href="menu.html">Десерты</a>
+                <a href="reviews.html">Отзывы</a>
+                <a href="index.html#contacts">Контакты</a>
+                <a href="constructor.html" style="color: var(--accent);">⚙ Конструктор</a>
+            </nav>
+            <button class="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="page-title">Наши десерты</h2>
+
+                <div class="menu-grid">
+            <div class="product-card" data-product-key="cheesecake">
+                <img class="product-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOTz_x0_e9CmhK8-xaAs71t75F9mQyqi5SUSO14YALMQ&s" alt="Клубничный чизкейк">
+                <div class="product-info">
+                    <h3 class="product-title">Клубничный чизкейк</h3>
+                    <p class="product-desc">Нежный сливочный сыр на песочной основе со свежей клубникой.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">320 ₽</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Клубничный чизкейк', 320)">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-key="macarons">
+                <img class="product-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnwiFlJoxGu_BAlm6I2r0bBL1OF4M-dF5knJ0KMsxbi0Yr4KsRcYna0Juz&s=10" alt="Сет макарунов">
+                <div class="product-info">
+                    <h3 class="product-title">Сет макарунов (5 шт.)</h3>
+                    <p class="product-desc">Миндальное печенье со вкусами: фисташка, малина, солёная карамель, манго и шоколад.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">450 ₽</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Сет макарунов (5 шт.)', 450)">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-key="eclair">
+                <img class="product-img" src="https://media.varlamovanapoleon.ru/images/thumb/app-media/images/eklery/montaznaia-oblast-3-min-2.webp" alt="Ванильный эклер">
+                <div class="product-info">
+                    <h3 class="product-title">Ванильный эклер</h3>
+                    <p class="product-desc">Воздушное заварное тесто с натуральным кремом пломбир и белой глазурью.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">210 ₽</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Ванильный эклер', 210)">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-key="cupcake">
+                <img class="product-img" src="https://gotovim-doma.ru/forum/files/6/7c/67c2ffcd40496079842d21b7a6e0bfb6_65927.jpg" alt="Капкейк Красный бархат">
+                <div class="product-info">
+                    <h3 class="product-title">Капкейк «Красный бархат»</h3>
+                    <p class="product-desc">Влажный шоколадно-ягодный бисквит с шапочкой из крем-чиза.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">240 ₽</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Капкейк Красный бархат', 240)">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-key="tartlet">
+                <img class="product-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHx6sXxLb2CEfanjeeFVUbZW9B8V_KEqk3uKmSvdQP9w&s=10" alt="Малиновая тарталетка">
+                <div class="product-info">
+                    <h3 class="product-title">Малиновая тарталетка</h3>
+                    <p class="product-desc">Хрустящая песочная корзиночка, заварной крем и горка отборной малины.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">290 ₽</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Малиновая тарталетка', 290)">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-product-key="bento">
+                <img class="product-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGGOS0bD7OrRiDHpZO-qRcNPZ-YesTdHnGhMdVJAjgvNbFPifuDeCV_iKg&s=10" alt="Бенто-торт">
+                <div class="product-info">
+                    <h3 class="product-title">Бенто-торт «Нежность»</h3>
+                    <p class="product-desc">Мини-торт на 1–2 персоны с начинкой «Сникерс» или «Клубника со сливками».</p>
+                    <div class="product-bottom">
+                        <span class="product-price">1100 ₽</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('Бенто-торт Нежность', 1100)">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="grid-column: 1 / -1; width: 100%; margin-top: 8px;">
+                <button type="button" class="checkout-btn" style="width: 100%; margin: 0; padding: 16px 24px; font-weight: 600;" onclick="openCakeDialog()">
+                    🎂 Отправить заявку на свой торт
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Виджет корзины -->
+    <div class="cart-widget" onclick="toggleCart()">
+        🧁 Корзина <span class="cart-count">0</span>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <h2 style="margin-top: 0;">Ваш сладкий заказ</h2>
+            <div class="cart-scroll-area" id="cart-items"></div>
+            <p style="font-size: 1.2rem; font-weight: 700;">Сумма: <span id="cart-total">0</span> ₽</p>
+
+            <div id="delivery-options" style="display: none; margin-top: 10px;">
+                <p style="font-weight: 600; margin-bottom: 8px;">Способ получения:</p>
+                <label style="display: block; margin-bottom: 6px; cursor: pointer;">
+                    <input type="radio" name="delivery" value="pickup" checked> Заберу из кондитерской (бесплатно)
+                </label>
+                <label id="delivery-radio-label" style="display: block; margin-bottom: 10px; cursor: pointer;">
+                    <input type="radio" name="delivery" value="delivery"> Бережная доставка (<span id="delivery-rate-text">+500 ₽ за км</span>)
+                </label>
+
+                <div id="map-wrapper" style="display: none; margin-top: 10px;">
+                    <label for="delivery-address" style="display: block; font-size: 0.9rem; margin-bottom: 6px;">Введите адрес (расстояние посчитается автоматически):</label>
+                    <input type="text" id="delivery-address" placeholder="Например: ул. Ленина 15" style="width: 100%; padding: 10px; border: 1px solid var(--grey-mid); border-radius: 8px; margin-bottom: 8px;">
+                    <p id="delivery-info" style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Введите адрес для расчета стоимости доставки</p>
+                </div>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">Оформить заказ</button>
+            <button onclick="toggleCart()" style="width: 100%; background: none; border: none; color: var(--text-muted); padding: 10px; cursor: pointer; margin-top: 6px;">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно индивидуальной заявки на торт -->
+ <dialog id="cake-dialog" class="cake-dialog">
+        <div class="cake-dialog-body">
+            <div class="dialog-top-bar">
+                <h3>🎂 Заявка на индивидуальный торт</h3>
+                <button type="button" class="dialog-close-btn" onclick="closeCakeDialog()" aria-label="Закрыть">✕</button>
+            </div>
+
+            <form id="custom-cake-form" class="custom-cake-form">
+                <div class="form-row-two">
+                    <div class="form-group">
+                        <label for="cake-client-name">Ваше имя *</label>
+                        <input type="text" id="cake-client-name" placeholder="Например: Анна" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cake-client-phone">Телефон *</label>
+                        <input type="tel" id="cake-client-phone" placeholder="+7 (999) 000-00-00" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cake-address">Адрес доставки (или «Самовывоз») *</label>
+                    <input type="text" id="cake-address" placeholder="ул. Ленина 15, кв. 42 или Самовывоз" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cake-description">Описание торта (вес, начинка, надпись, дата) *</label>
+                    <textarea id="cake-description" rows="3" placeholder="Торт на 2 кг, начинка клубника-пломбир, нужен к субботе..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Фотографии-примеры</label>
+                    <label for="cake-photos" class="photo-upload-zone" id="photo-drop-zone">
+                        <span class="upload-icon">📷</span>
+                        <span class="upload-title">Нажмите или перетащите фото сюда</span>
+                        <input type="file" id="cake-photos" accept="image/*" multiple hidden>
+                    </label>
+                    <div class="photo-preview-list" id="photo-preview-list"></div>
+                </div>
+
+                <button type="submit" class="checkout-btn" style="margin-top: 6px;">Отправить заявку</button>
+            </form>
+        </div>
+    </dialog>
+
+
+    <script src="../js/index.js"></script>
+</body>
+</html>

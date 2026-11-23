@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор сайта — Кондитерская</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="constructor.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1>Конструктор сайта</h1>
+            <nav class="links">
+                <a href="index.html">← На сайт</a>
+                <a href="menu.html">Десерты</a>
+                <a href="reviews.html">Отзывы</a>
+            </nav>
+            <button class="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="builder-layout">
+        <aside class="builder-controls">
+            <div class="control-group">
+                <h3>🎨 Внешний вид и тексты</h3>
+                <label>Название кондитерской
+                    <input type="text" id="cfg-brandName" placeholder="Кондитерская">
+                </label>
+                <label>Акцентный цвет
+                    <div class="color-row">
+                        <input type="color" id="cfg-accentColor" value="#d96b8a">
+                        <span id="color-hex">#d96b8a</span>
+                    </div>
+                </label>
+                <label>Заголовок акции
+                    <input type="text" id="cfg-offerTitle">
+                </label>
+                <label>Текст акции
+                    <textarea id="cfg-offerText" rows="2"></textarea>
+                </label>
+            </div>
+
+            <div class="control-group">
+                <h3>💰 Цены в меню (₽)</h3>
+                <label>Клубничный чизкейк
+                    <input type="number" id="price-cheesecake" min="0" step="10">
+                </label>
+                <label>Сет макарунов (5 шт.)
+                    <input type="number" id="price-macarons" min="0" step="10">
+                </label>
+                <label>Ванильный эклер
+                    <input type="number" id="price-eclair" min="0" step="10">
+                </label>
+                <label>Капкейк «Красный бархат»
+                    <input type="number" id="price-cupcake" min="0" step="10">
+                </label>
+                <label>Малиновая тарталетка
+                    <input type="number" id="price-tartlet" min="0" step="10">
+                </label>
+                <label>Бенто-торт «Нежность»
+                    <input type="number" id="price-bento" min="0" step="50">
+                </label>
+            </div>
+
+            <div class="control-group">
+                <h3>⚙️ Функционал (Модули)</h3>
+                <label class="toggle-row">
+                    <span>Онлайн-оплата и корзина</span>
+                    <input type="checkbox" id="cfg-paymentEnabled">
+                </label>
+                <label class="toggle-row">
+                    <span>Доставка курьером</span>
+                    <input type="checkbox" id="cfg-deliveryEnabled">
+                </label>
+                <label class="toggle-row">
+                    <span>Падающие сладости на фоне</span>
+                    <input type="checkbox" id="cfg-sweetsEffect">
+                </label>
+            </div>
+
+            <div class="control-group">
+                <h3>📍 Контакты и тарифы</h3>
+                <label>Стоимость доставки (₽ за км)
+                    <input type="number" id="cfg-deliveryRate" min="0" step="50">
+                </label>
+                <label>Телефон
+                    <input type="text" id="cfg-phone">
+                </label>
+                <label>Адрес
+                    <input type="text" id="cfg-address">
+                </label>
+            </div>
+
+            <div class="builder-actions">
+                <button type="button" id="btn-save" class="btn-primary">Сохранить конфиг</button>
+                <button type="button" id="btn-reset" class="btn-secondary">Сбросить</button>
+            </div>
+        </aside>
+
+        <section class="builder-preview-area">
+            <div class="preview-window" id="preview-window">
+                <div class="preview-header">
+                    <strong id="prev-brandName">Кондитерская</strong>
+                    <span class="preview-badge" id="prev-cart-badge">🧁 Корзина: Вкл</span>
+                </div>
+                <div class="preview-body">
+                    <div class="preview-offer">
+                        <h4 id="prev-offerTitle">Скидка 10% на первый торт!</h4>
+                        <p id="prev-offerText">Оставьте отзыв на 2ГИС или покажите подписку на нашу группу на кассе и получите сладкий бонус.</p>
+                        <button type="button" class="preview-btn" id="prev-order-btn">Выбрать десерты</button>
+                    </div>
+                    <div class="preview-status-grid">
+                        <div class="status-pill" id="pill-delivery">🚚 Доставка: 500 ₽/км</div>
+                        <div class="status-pill" id="pill-sweets">🧁 Фон: Вкл</div>
+                    </div>
+                    <div class="preview-footer">
+                        <small id="prev-contacts">📞 +7‒927‒605‒98‒01 | 📍 Зелёная ул.18</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="json-export-box">
+                <div class="json-header">
+                    <span>JSON-конфигурация (для передачи в Django API)</span>
+                    <button type="button" id="btn-copy-json">Копировать</button>
+                </div>
+                <pre id="json-output">{}</pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/index.js"></script>
+    <script src="constructor.js"></script>
+</body>
+</html>

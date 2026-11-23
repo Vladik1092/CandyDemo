@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ оформлен — Кондитерская</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <canvas id="sweets-canvas"></canvas>
+
+    <header>
+        <div class="menu">
+            <h1 data-cfg="brandName">Кондитерская</h1>
+            <nav class="links">
+                <a href="index.html">Главная</a>
+                <a href="menu.html">Десерты</a>
+                <a href="reviews.html">Отзывы</a>
+            </nav>
+            <button class="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main style="text-align: center; padding: 80px 20px;">
+        <div style="background: var(--white); border: 1px solid var(--grey-light); border-radius: 22px; padding: 40px 25px; max-width: 500px; margin: 0 auto; box-shadow: 0 8px 28px rgba(217, 107, 138, 0.08);">
+            <div style="font-size: 4rem; margin-bottom: 10px;">🧁</div>
+            <h2 style="margin-top: 0;">Спасибо за сладкий заказ!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Кондитер уже бережно упаковывает ваш десерт.</p>
+            <div id="order-summary" style="text-align: left; background: var(--bg-main); padding: 15px; border-radius: 12px; margin-bottom: 24px; font-size: 0.9rem; display: none;"></div>
+            <a href="index.html" class="checkout-btn" style="text-decoration: none; font-weight: 600;">На главную</a>
+        </div>
+    </main>
+
+    <script>
+        const orderRaw = localStorage.getItem('bakeryOrder');
+        if (orderRaw) {
+            try {
+                const order = JSON.parse(orderRaw);
+                const box = document.getElementById('order-summary');
+                box.style.display = 'block';
+                box.innerHTML = `
+                    <p style="margin: 0 0 6px;"><strong>Способ получения:</strong> ${order.deliveryType === 'delivery' ? 'Доставка (' + order.address + ')' : 'Самовывоз из кондитерской'}</p>
+                    <p style="margin: 0;"><strong>Итого к оплате:</strong> ${order.grandTotal} ₽</p>
+                `;
+            } catch (e) {}
+        }
+    </script>
+    <script src="../js/index.js"></script>
+</body>
+</html>

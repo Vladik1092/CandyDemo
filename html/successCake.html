@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка на торт принята — Кондитерская</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <canvas id="sweets-canvas"></canvas>
+
+    <header>
+        <div class="menu">
+            <h1 data-cfg="brandName">Кондитерская</h1>
+            <nav class="links">
+                <a href="index.html">Главная</a>
+                <a href="menu.html">Десерты</a>
+                <a href="reviews.html">Отзывы</a>
+            </nav>
+            <button class="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main style="text-align: center; padding: 80px 20px;">
+        <div style="background: var(--white); border: 1px solid var(--grey-light); border-radius: 22px; padding: 40px 25px; max-width: 520px; margin: 0 auto; box-shadow: 0 8px 28px rgba(217, 107, 138, 0.08);">
+            <div style="font-size: 4rem; margin-bottom: 10px;">🎂</div>
+            <h2 style="margin-top: 0;">Заявка на торт отправлена!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Кондитер изучит ваши пожелания и прикреплённые фото, а затем свяжется с вами для уточнения деталей.</p>
+            <div id="cake-order-summary" style="text-align: left; background: var(--bg-main); padding: 16px; border-radius: 12px; margin-bottom: 24px; font-size: 0.92rem; line-height: 1.5; display: none;"></div>
+            <a href="menu.html" class="checkout-btn" style="text-decoration: none; font-weight: 600;">Вернуться к десертам</a>
+        </div>
+    </main>
+
+    <script>
+        const raw = localStorage.getItem('lastCakeRequest');
+        if (raw) {
+            try {
+                const data = JSON.parse(raw);
+                const box = document.getElementById('cake-order-summary');
+                box.style.display = 'block';
+                box.innerHTML = `
+                    <p style="margin: 0 0 6px;"><strong>Имя:</strong> ${data.name}</p>
+                    <p style="margin: 0 0 6px;"><strong>Телефон:</strong> ${data.phone}</p>
+                    <p style="margin: 0 0 6px;"><strong>Получение / адрес:</strong> ${data.address}</p>
+                    <p style="margin: 0 0 6px;"><strong>Пожелания к торту:</strong> ${data.description}</p>
+                    <p style="margin: 0;"><strong>Прикреплено фото:</strong> ${data.photosCount} шт.</p>
+                `;
+            } catch (e) {}
+        }
+    </script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
