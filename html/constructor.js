@@ -1,4 +1,5 @@
 const DEFAULT_CONFIG = {
+    version: 2, // При изменении этого числа старый кэш сбросится автоматически
     brandName: 'Кондитерская',
     accentColor: '#d96b8a',
     offerTitle: 'Скидка 10% на первый торт!',
@@ -18,12 +19,17 @@ const DEFAULT_CONFIG = {
         bento: 1100
     }
 };
-
 let currentConfig = loadConfig();
 
 function loadConfig() {
     try {
         const saved = JSON.parse(localStorage.getItem('siteConfig'));
+
+        if (!saved || saved.version !== DEFAULT_CONFIG.version) {
+            localStorage.setItem('siteConfig', JSON.stringify(DEFAULT_CONFIG));
+            return JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+        }
+
         if (saved && (saved.brandName === 'Кофейня' || saved.brandName === 'Шаурма №1')) {
             localStorage.setItem('siteConfig', JSON.stringify(DEFAULT_CONFIG));
             return JSON.parse(JSON.stringify(DEFAULT_CONFIG));
